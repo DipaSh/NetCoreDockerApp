@@ -1,9 +1,9 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-sac2016 AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM microsoft/dotnet:2.1-sdk-nanoserver-sac2016 AS build
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
 COPY ["WebCoreDockerApp/WebCoreDockerApp.csproj", "WebCoreDockerApp/"]
 RUN dotnet restore "WebCoreDockerApp/WebCoreDockerApp.csproj"
